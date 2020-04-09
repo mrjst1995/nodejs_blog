@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/user">Početna strana</a>
+            </li>
+        </ul>
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user-circle fa-2x"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Moj profil</a>
+            <a class="dropdown-item" href="/new_article">Novi članak</a>
+            <a class="dropdown-item" href="/all_articles">Moji članci</a>
+            <a class="dropdown-item" href="/sign_out">Odjavi se</a>
+        </div>
+    </div>
+</nav>
+<% if (articles!=null) { %>
+    <% for (let i = 0; i < articles.length; i++) { %>
+        <div class="container mx-auto">
+            <div class="col-lg-5 align-items-center mx-auto pt-3">
+                <div class="card" style="width: 18rem;">
+                    <!--    <img class="card-img-top" src="..." alt="Card image cap">-->
+                    <div class="card-body">
+                        <h5 class="card-title"><%= articles[i].title %></h5>
+                        <p class="card-text"><%= articles[i].body %></p>
+                        <a href="/actions/<%= articles[i].id %>" class="btn btn-outline-dark btn-lg text-secondary">Akcije</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+<% } %>

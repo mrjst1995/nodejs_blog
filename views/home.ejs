@@ -1,0 +1,24 @@
+<%- include('nav'); -%>
+<% if (locals.message) { %>
+    <div class="alert alert-dark" role="alert">
+        <%= message %>
+    </div>
+<% } %>
+
+<% if (articles) { %>
+    <% for (let i = 0; i < articles.length; i++) { %>
+        <div class="container mx-auto">
+            <div class="col-lg-5 align-items-center mx-auto pt-3">
+                <div class="card" style="width: 18rem;">
+                <!--    <img class="card-img-top" src="..." alt="Card image cap">-->
+                    <div class="card-body">
+                        <h5 class="card-title"><%= articles[i].title %></h5>
+                        <p class="card-text"><%= articles[i].body %></p>
+<!--                        <p class="card-text"> Author:  username </p>-->
+<!--                        <a href="#" class="btn btn-primary">Dugme</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+<% } %>

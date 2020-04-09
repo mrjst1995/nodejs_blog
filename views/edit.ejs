@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Blog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/user">Početna strana</a>
+            </li>
+        </ul>
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user-circle fa-2x"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Moj profil</a>
+            <a class="dropdown-item" href="#">Novi članak</a>
+            <a class="dropdown-item" href="/all_articles">Moji članci</a>
+            <a class="dropdown-item" href="/sign_out">Odjavi se</a>
+        </div>
+    </div>
+
+</nav>
+<form method="post" action="/edit/<%= article._id%>">
+    <div class="container">
+        <div class="col-lg-7 align-items-center mx-auto pt-3">
+            <h4 class="text-secondary"> Izmeni članak</h4>
+            <div class="form-group">
+                <label for="formGroupExampleInput" class="font-weight-bold text-secondary">Naslov</label>
+                <input value="<%= article.title %>" name="title" type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+            </div>
+            <!--            <div class="form-group">-->
+            <!--                <label for="exampleFormControlFile1" class="font-weight-bold text-secondary">Ubacite sliku </label>-->
+            <!--                <input type="file" class="form-control-file" id="exampleFormControlFile1">-->
+            <!--            </div>-->
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1" class="font-weight-bold text-secondary">Članak</label>
+                <textarea name="body" class="form-control" id="exampleFormControlTextarea1" rows="8">
+                    <%= article.body %>
+                </textarea>
+            </div>
+            <button class="btn btn-outline-dark btn-lg text-secondary" type="submit">Potvrdi izmenu</button>
+        </div>
+    </div>
+</form>
